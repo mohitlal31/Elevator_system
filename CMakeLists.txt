@@ -5,6 +5,10 @@ add_definitions(-std=c++17)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-project(HelloWorld)
+project(elevator_system)
 
-add_executable(HelloWorld src/main.cpp)
+include_directories(include)
+
+file(GLOB SOURCES "src/*.cpp")
+
+add_executable(Elevator ${SOURCES})
