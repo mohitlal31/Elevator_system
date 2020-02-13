@@ -17,7 +17,7 @@ public:
         m_currentDirection(currentDirection) {}
 
   void requestFloor(int floor);
-  void printStatus();
+  void printStatus() const;
 
 private:
   void processRequests();

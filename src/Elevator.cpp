@@ -1,16 +1,19 @@
 #include "../include/Elevator.h"
 
 #include <algorithm>
+#include <chrono>
+#include <thread>
 
 void Elevator::requestFloor(int floor)
 {
-    if (std::find(m_requests.begin(), m_requests.end(), floor) != m_requests.end())
+    if (std::find(m_requests.begin(), m_requests.end(), floor) == m_requests.end())
+    {
+        m_requests.push_back(floor);
+    }
+    else
     {
         std::cout << "Floor " << floor << " has already been requested" << std::endl;
-        return;
     }
-
-    m_requests.push_back(floor);
 
     //sort the requests based on the current direction
     //of the elevator and process them
@@ -48,25 +51,34 @@ void Elevator::processRequests()
 {
     while (!m_requests.empty())
     {
-        if (*m_requests.begin() < *(m_requests.begin() + 1))
+        if (m_requests.size() > 1)
         {
-            m_currentDirection = direction::UP;
+            if (*m_requests.begin() < *(m_requests.begin() + 1))
+            {
+                m_currentDirection = direction::UP;
+            }
+            else
+            {
+                m_currentDirection = direction::DOWN;
+            }
         }
         else
         {
-            m_currentDirection = direction::DOWN;
+            m_currentDirection = direction::STATIONARY;
         }
+
         m_currentPosition = m_requests.front();
         m_requests.pop_front();
         printStatus();
     }
-    m_currentDirection = direction::STATIONARY;
-    printStatus();
 }
 
-void Elevator::printStatus()
+void Elevator::printStatus() const
 {
-    std::cout << "Elevator has reached floor " << m_currentPosition << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+    std::cout << "----------------------------------------------" << std::endl;
+    std::cout << "Elevator is at floor " << m_currentPosition << std::endl;
     if (m_currentDirection == direction::DOWN)
     {
         std::cout << "Elevator is going down" << std::endl;
@@ -79,4 +91,5 @@ void Elevator::printStatus()
     {
         std::cout << "Elevator is stationary" << std::endl;
     }
+    std::cout << "----------------------------------------------" << std::endl;
 }
