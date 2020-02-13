@@ -70,3 +70,14 @@ Elevator_Simulator
 | Class constructors utilize member initialization lists.| Elevator.h (line 14), Controller.h (line 17) |
 | Classes abstract implementation details from their interfaces.| Elevator.h, Controller.h |
 | Classes encapsulate behavior. | Elevator.h, Controller.h |
+
+## Future scope
+
+* Create a single elevator object on a separate thread. Add time delays to simulate actual elevator
+  functionality.
+
+* Create multiple elevators, each on a separate thread. The controller will be responsible
+  for delegating the request to the closest elevator.
+
+* Add a GUI with buttons on each floor and inside each elevator. This will simulate the actual system
+  with internal and external requests
