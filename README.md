@@ -11,7 +11,7 @@ This project is a console application that simulates a single elevator system.
    of the elevator.
 
 ## File Structure
-`
+```
 Elevator_Simulator
 |
 +-- include
@@ -31,7 +31,7 @@ Elevator_Simulator
 +-- CMakeLists.txt
 |
 +-- README.md
-`
+```
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
