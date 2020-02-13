@@ -1,10 +1,37 @@
-# CPPND: Capstone Hello World Repo
+# Elevator Simulator
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
+This project is a console application that simulates a single elevator system.
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+## Project Overview
+1. The user enters the number of floors in the building.
+2. To simulate pre-existing elevator requests, the user enters a random number `x` and the system automatically generates `x` 
+   number of random pre-exising elevator requests.
+3. Then, the user enters their actual request by entering the current floor and the direction they need to go(up/down).
+4. Then, the system takes in account all pre-existing requests as well as the current user request to simulate the behaviour
+   of the elevator.
 
-In this project, you can build your own C++ application starting with this repo, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+## File Structure
+`
+Elevator_Simulator
+|
++-- include
+|   |
+|   +-- Controller.h
+|   |
+|   +-- Elevator.h
+|
++-- src
+|   |
+|   +-- Controller.cpp
+|   |
+|   +-- Elevator.cpp
+|   |
+|   +-- Simulator.cpp
+|
++-- CMakeLists.txt
+|
++-- README.md
+`
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -24,3 +51,22 @@ In this project, you can build your own C++ application starting with this repo,
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./HelloWorld`.
+
+## Rubric points addressed
+
+### Loops, Functions, I/O
+
+| Criteria | File/Line |
+| --- | --- |
+| The project demonstrates an understanding of C++ functions and control structures. | Elevator.cpp, Controller.cpp |
+| The project accepts user input and processes the input. | Simulator.cpp |
+
+### Object Oriented Programming
+
+| Criteria | File/Line |
+| --- | --- |
+| The project uses Object Oriented Programming techniques.| Elevator.h, Controller.h |
+| Classes use appropriate access specifiers for class members. | Elevator.h, Controller.h |
+| Class constructors utilize member initialization lists.| Elevator.h (line 14), Controller.h (line 17) |
+| Classes abstract implementation details from their interfaces.| Elevator.h, Controller.h |
+| Classes encapsulate behavior. | Elevator.h, Controller.h |
